@@ -1,4 +1,4 @@
-def quad(Y=None, A=None, X=None, retum=bool(False)):
+def quad(Y=None, A=None, X=None):
     # What $y=ax^2$?
 
     Calc = float(0)
@@ -56,10 +56,7 @@ def quad(Y=None, A=None, X=None, retum=bool(False)):
                 f"Since X^2 is a negative number ({CalcX}), there are no solutions within the set of real numbers."
             )
 
-    if retum:
-        return Calc
-    else:
-        print()
+    return Calc
 
 def sqrt(X, f=10):
     ortnb = 0
