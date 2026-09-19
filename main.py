@@ -87,7 +87,9 @@ def factorial(X):
     Calc = 1
 
     if not X == int(X):
-        raise FunctionInvalidError("Please use gamma.")
+        raise FunctionInvalidError("The value is not an integer. \n Please use gamma().")
+    if 0 > X:
+        raise ValueError("Calculations involving negative numbers cannot be performed. \n Please use gamma().")
 
     for i in range(X):
         Calc *= i+1
