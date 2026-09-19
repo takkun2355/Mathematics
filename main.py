@@ -84,12 +84,12 @@ def sqrt(X, f=10):
     return X_pos, X_neg
 
 def factorial(X):
-    Calc = 0
+    Calc = 1
 
     if not X == int(X):
-        raise("Please use gamma.")
+        raise FunctionInvalidError("Please use gamma.")
 
-    for i in range(X-1):
+    for i in range(X):
         Calc *= i+1
     return Calc
 
@@ -98,7 +98,7 @@ def absol(X):
         X = -X
     return X
 
-def BSJudge(X, Y, retum, nominus=False):
+def BSJudge(X, Y, retum="both", nominus=False):
     if Y <= X:
         small = Y
         big = X
@@ -119,6 +119,10 @@ def BSJudge(X, Y, retum, nominus=False):
             return int(small)
         case "both":
             return int(big), int(small)
+        case _:
+            raise TypeError("The value is not an integer. \n Example: test.sqrt(10, 20)")
+    
+
 
 def gcd(X, Y):
     if X is Y is None:
@@ -127,7 +131,7 @@ def gcd(X, Y):
         raise ValueError("The value is insufficient. \n Example: test.sqrt(10, 20)")
 
     if X != int(X) or Y != int(Y):
-        raise ValueError("The value is not an integer. \n Example: test.sqrt(10, 20)")
+        raise TypeError("The value is not an integer. \n Example: test.sqrt(10, 20)")
     
     big, small = BSJudge(X, Y, "big", True), BSJudge(X, Y, "small", True)
 
@@ -148,6 +152,11 @@ def gcd(X, Y):
         return big
     else:
         return Calc
+
+
+
+class FunctionInvalidError(TypeError):
+    pass
 
 N = -10.12
 
